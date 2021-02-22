@@ -1,0 +1,19 @@
+body.bg-image{
+    background-image : url('../img/bg-img.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+}
+
+.container{
+    color: black;
+    border-radius: 20px;
+    width: 70%;
+    height: 100px;
+    margin: 50px auto;
+    background: linear-gradient(35deg,#be7ceb,#FFCCCC)
+}
+h4.footerContent{
+    color:white;
+}

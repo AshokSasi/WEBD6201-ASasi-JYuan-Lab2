@@ -1,0 +1,26 @@
+body.bg-image{
+    background-image : url('../img/bg-img.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+}
+h1.titleBg{
+    color: white;
+    right:30px
+    border-radius: 5px;
+    width: 70%;
+    height: 100px;
+    margin: 10px auto;
+    background: linear-gradient(35deg,#160b52,#2f55d1,#3d68f5)
+}
+.contactUsForm{
+   margin: 300px;
+}
+.container{
+    
+  /*  background: linear-gradient(35deg,#160b52,#2f51be)*/
+}
+footer{
+    color:white;
+}

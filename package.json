@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "bootstrap": "^5.0.0-beta1",
+    "jquery": "^3.5.1"
+  },
+  "name": "WEBD6201-ASasi-JYuan-Lab1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AshokSasi/WEBD6201-ASasi-JYuan-Lab1.git",
+  "author": "Ashok Sasitharan <asasitharan28@gmail.com>",
+  "license": "MIT"
+}
