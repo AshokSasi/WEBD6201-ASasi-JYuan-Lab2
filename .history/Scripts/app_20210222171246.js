@@ -454,7 +454,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
   function testEmailAddress()
   {
     let errorArea = $("#ErrorMessage").hide();
-    let emailAddressPattern = /^([a-zA-Z0-9._%-]{8,15}*$+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+    let emailAddressPattern = /^([a-zA-Z0-9._%-]{2,6}+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
       
       $("#emailAddress").on("blur", function()
       {

@@ -415,27 +415,12 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
     });
   }
 
-  function testName()
+  function testFirstName()
   {
     let errorArea = $("#ErrorMessage").hide();
     let firstNamePattern = /[A-Z][a-z]{1,30}/;
-    let lastNamePattern = /[A-Z][a-z]{1,30}/;
 
-    //Last name character check
-    $("#lastName").on("blur", function()
-    {
-      if(!lastNamePattern.test($(this).val()))
-      {
-        $(this).trigger("focus").trigger("select");
-        errorArea.show().addClass("alert alert-danger").text("Please enter a valid Last Name.The last name must be capitalized and must be between 2-30 characters long.");
-      }
-      else
-      {
-        errorArea.removeAttr("class").hide();
-      }
-    });
-
-    //first name check
+      
       $("#firstName").on("blur", function()
       {
         if(!firstNamePattern.test($(this).val()))
@@ -450,18 +435,38 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
       });
   }
 
- 
+  function testLastName()
+  { 
+    
+  let errorArea = $("#ErrorMessage").hide();
+  let lastNamePattern = /[A-Z][a-z]{1,30}/;
+
+    
+    $("#firstName").on("blur", function()
+    {
+      if(!firstNamePattern.test($(this).val()))
+      {
+        $(this).trigger("focus").trigger("select");
+        errorArea.show().addClass("alert alert-danger").text("Please enter a valid First Name.The first name must be capitalized and must be between 2-30 characters long.");
+      }
+      else
+      {
+        errorArea.removeAttr("class").hide();
+      }
+    });
+
+  }
   function testEmailAddress()
   {
     let errorArea = $("#ErrorMessage").hide();
-    let emailAddressPattern = /^([a-zA-Z0-9._%-]{8,15}*$+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+    let emailAddressPattern = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
       
       $("#emailAddress").on("blur", function()
       {
         if(!emailAddressPattern.test($(this).val()))
         {
           $(this).trigger("focus").trigger("select");
-          errorArea.show().addClass("alert alert-danger").text("Please enter a valid Email Address. Email address must be 8-30 characters long.");
+          errorArea.show().addClass("alert alert-danger").text("Please enter a valid Email Address.");
         }
         else
         {
@@ -480,7 +485,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
    registerTitle.after(errorArea);
 
-   testName();
+   testFirstName();
    testEmailAddress();
 
   }

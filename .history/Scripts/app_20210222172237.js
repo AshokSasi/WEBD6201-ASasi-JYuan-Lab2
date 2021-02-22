@@ -418,7 +418,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
   function testName()
   {
     let errorArea = $("#ErrorMessage").hide();
-    let firstNamePattern = /[A-Z][a-z]{1,30}/;
+    let firstNamePattern = /([A-Z][a-z]{1,5})/;
     let lastNamePattern = /[A-Z][a-z]{1,30}/;
 
     //Last name character check
@@ -454,7 +454,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
   function testEmailAddress()
   {
     let errorArea = $("#ErrorMessage").hide();
-    let emailAddressPattern = /^([a-zA-Z0-9._%-]{8,15}*$+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+    let emailAddressPattern = /^(([a-zA-Z0-9._%-]{8, 30}$)+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
       
       $("#emailAddress").on("blur", function()
       {

@@ -454,14 +454,14 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
   function testEmailAddress()
   {
     let errorArea = $("#ErrorMessage").hide();
-    let emailAddressPattern = /^([a-zA-Z0-9._%-]{8,15}*$+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+    let emailAddressPattern = /^([a-zA-Z0-9._%-]{8,30}+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
       
       $("#emailAddress").on("blur", function()
       {
         if(!emailAddressPattern.test($(this).val()))
         {
           $(this).trigger("focus").trigger("select");
-          errorArea.show().addClass("alert alert-danger").text("Please enter a valid Email Address. Email address must be 8-30 characters long.");
+          errorArea.show().addClass("alert alert-danger").text("Please enter a valid Email Address. Email address must have a minimum of 8 characters.");
         }
         else
         {
