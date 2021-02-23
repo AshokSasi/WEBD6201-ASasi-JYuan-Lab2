@@ -7,6 +7,8 @@ File: app.js
 */
 "use strict";
 
+
+"use strict";
 // User Class
 
 ((core)=>{
@@ -93,7 +95,34 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
     {
       return `Email Address : ${this.EmailAddress} \nUsername : ${this.Username} \nFirst Name: ${this.FirstName} \nLast Name: ${this.LastName}`;
     }
-   
+
+    // /**
+    //  * This method returns a JSON object made up of the properties of the Contact class
+    //  *
+    //  * @returns {Object}
+    //  */
+    // toJSON()
+    // {
+    //   return  {
+      
+    //     "EmailAddress": this.EmailAddress,
+    //     "Username": this.Username,
+    //     "FirstName": this.FirstName,
+    //     "LastName": this.LastName
+    //   }
+    // }
+
+    // /**
+    //  * This method takes a JSON data object and assigns value to contact class properties
+    //  * @param {Object} data 
+    //  */
+    // fromJSON(data)
+    // {
+    //   this.DisplayName = data.DisplayName;
+    //   this.EmailAddress = data.EmailAddress;
+    //   this.Username = data.Username;
+    //   this.Password = data.Password;
+    // }
 
     /**
      * This method converts the User into a comma-separated value string
@@ -386,9 +415,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
     });
   }
 
-  /**
-   * Tests the first and last names for proper character length and content
-   */
   function testName()
   {
     let errorArea = $("#ErrorMessage").hide();
@@ -424,9 +450,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
       });
   }
 
- /**
-  * Tests the email address for proper formatting and proper length
-  */
+ 
   function testEmailAddress()
   {
     let errorArea = $("#ErrorMessage").hide();
@@ -446,9 +470,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
       });
   }
 
-/**
- * Tests the password for proper length
- */
+
   function testPassword()
   {
     let errorArea = $("#ErrorMessage").hide();
@@ -470,9 +492,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
   }
 
-  /**
-   * Tests to see if the confirm password is the same as the password entered
-   */
   function confirmPassword()
   { 
     let errorArea = $("#ErrorMessage").hide();
@@ -493,9 +512,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
     });
   }
 
-  /**
-   * Functions that calls the various validation tests to validate the registration form
-   */
   function registerValidation()
   {
     testName();
@@ -504,9 +520,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
     confirmPassword();
   }
 
-  /**
-   * Function that displays the register page of the site
-   */
   function displayRegister()
   {
     let errorArea = document.createElement("div");
@@ -517,7 +530,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
    registerValidation();
 
-   //On click of the register button: creates a new user object, displays user info in console, clears the form
    $("#registerButton").on("click", function(event)
    {
     event.preventDefault();
@@ -532,9 +544,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
   }
 
-  /**
-   * Function used to display the login page of the site
-   */
  function displayLogin()
   {
    
@@ -547,13 +556,21 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
       event.preventDefault();
       let username = $("#username");
       let password = $("#password");
+      let success = false;
+      //let newUser = new core.User();
 
-      //if username and password are not empty
+      //if username and password matches then perform login
+      
       if(username.val() !== "" && password.val()!=="")
       {
+        //add user to session storage
+        
+      //  newUser.Username = $("#username").val();
+      //  newUser.Password = password;
+
         sessionStorage.setItem("username", username.val());
         messageArea.removeAttr("class").hide();
-
+        //redirect user to secure area
         location.href = "index.html";
       }
       else if(username.val()== "")
@@ -571,9 +588,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
   }
 
-  /**
-   * function used to toggle the login/logout link in the navbar
-   */
   function toggleLogin()
   {
     let usernameSession = sessionStorage.getItem("username");

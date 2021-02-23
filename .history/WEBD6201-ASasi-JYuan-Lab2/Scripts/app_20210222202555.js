@@ -553,7 +553,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
       {
         sessionStorage.setItem("username", username.val());
         messageArea.removeAttr("class").hide();
-
+        //redirect user to secure area
         location.href = "index.html";
       }
       else if(username.val()== "")
@@ -571,9 +571,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
   }
 
-  /**
-   * function used to toggle the login/logout link in the navbar
-   */
   function toggleLogin()
   {
     let usernameSession = sessionStorage.getItem("username");
