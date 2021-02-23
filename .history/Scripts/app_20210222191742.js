@@ -461,7 +461,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
         if(!emailAddressPattern.test($(this).val()))
         {
           $(this).trigger("focus").trigger("select");
-          errorArea.show().addClass("alert alert-danger").text("Please enter a valid Email Address. Email address must be 8-20 characters long.");
+          errorArea.show().addClass("alert alert-danger").text("Please enter a valid Email Address. Email address must be 8-30 characters long.");
         }
         else
         {
