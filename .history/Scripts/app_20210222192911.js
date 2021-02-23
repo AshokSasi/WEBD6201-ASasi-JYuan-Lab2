@@ -510,16 +510,9 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
           errorArea.show().addClass("alert alert-danger").text("Passwords must match.");
       }
     });
-  }
+    
 
-  function registerValidation()
-  {
-    testName();
-    testEmailAddress();
-    testPassword();
-    confirmPassword();
   }
-
   function displayRegister()
   {
     let errorArea = document.createElement("div");
@@ -528,19 +521,10 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
    registerTitle.after(errorArea);
 
-   registerValidation();
-
-   $("#registerButton").on("click", function(event)
-   {
-    event.preventDefault();
-    let username= firstName.value + lastName.value;
-    let newUser = new core.User(emailAddress.value, username, password.value, firstName.value,lastName.value);
-    console.log(newUser.serialize());
-    $('#registerForm')[0].reset();
-
-   });
-
- 
+   testName();
+   testEmailAddress();
+   testPassword();
+   confirmPassword();
 
   }
 

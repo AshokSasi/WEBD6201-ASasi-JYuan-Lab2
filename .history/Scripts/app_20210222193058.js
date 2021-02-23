@@ -530,16 +530,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
    registerValidation();
 
-   $("#registerButton").on("click", function(event)
-   {
-    event.preventDefault();
-    let username= firstName.value + lastName.value;
-    let newUser = new core.User(emailAddress.value, username, password.value, firstName.value,lastName.value);
-    console.log(newUser.serialize());
-    $('#registerForm')[0].reset();
-
-   });
-
  
 
   }

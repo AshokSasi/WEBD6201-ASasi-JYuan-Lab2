@@ -498,28 +498,17 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
     let password = $("#password");
     let confirmPassword = $("#confirmPassword");
     
-    $("#confirmPassword").on("blur", function()
+    if(password.val() == confirmPassword.val())
     {
-      if(password.val() == confirmPassword.val())
-      {
-        errorArea.removeAttr("class").hide();
-      }
-      else
-      {
-        $(this).trigger("focus").trigger("select");
-          errorArea.show().addClass("alert alert-danger").text("Passwords must match.");
-      }
-    });
-  }
+      errorArea.removeAttr("class").hide();
+    }
+    else
+    {
+      $(this).trigger("focus").trigger("select");
+        errorArea.show().addClass("alert alert-danger").text("Passwords must match.");
+    }
 
-  function registerValidation()
-  {
-    testName();
-    testEmailAddress();
-    testPassword();
-    confirmPassword();
   }
-
   function displayRegister()
   {
     let errorArea = document.createElement("div");
@@ -528,19 +517,10 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
    registerTitle.after(errorArea);
 
-   registerValidation();
-
-   $("#registerButton").on("click", function(event)
-   {
-    event.preventDefault();
-    let username= firstName.value + lastName.value;
-    let newUser = new core.User(emailAddress.value, username, password.value, firstName.value,lastName.value);
-    console.log(newUser.serialize());
-    $('#registerForm')[0].reset();
-
-   });
-
- 
+   testName();
+   testEmailAddress();
+   testPassword();
+   confirmPassword();
 
   }
 

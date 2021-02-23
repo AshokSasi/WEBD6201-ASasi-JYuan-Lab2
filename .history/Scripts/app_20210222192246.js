@@ -481,7 +481,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
       if(!passwordPattern.test($(this).val()))
       {
         $(this).trigger("focus").trigger("select");
-        errorArea.show().addClass("alert alert-danger").text("Please enter a valid Password. Password must be at least 6 characters long.");
+        errorArea.show().addClass("alert alert-danger").text("Please enter a valid Password. Password must be at least 6 characters long");
       }
       else
       {
@@ -489,35 +489,6 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
       }
     });
 
-
-  }
-
-  function confirmPassword()
-  { 
-    let errorArea = $("#ErrorMessage").hide();
-    let password = $("#password");
-    let confirmPassword = $("#confirmPassword");
-    
-    $("#confirmPassword").on("blur", function()
-    {
-      if(password.val() == confirmPassword.val())
-      {
-        errorArea.removeAttr("class").hide();
-      }
-      else
-      {
-        $(this).trigger("focus").trigger("select");
-          errorArea.show().addClass("alert alert-danger").text("Passwords must match.");
-      }
-    });
-  }
-
-  function registerValidation()
-  {
-    testName();
-    testEmailAddress();
-    testPassword();
-    confirmPassword();
   }
 
   function displayRegister()
@@ -528,19 +499,9 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
 
    registerTitle.after(errorArea);
 
-   registerValidation();
-
-   $("#registerButton").on("click", function(event)
-   {
-    event.preventDefault();
-    let username= firstName.value + lastName.value;
-    let newUser = new core.User(emailAddress.value, username, password.value, firstName.value,lastName.value);
-    console.log(newUser.serialize());
-    $('#registerForm')[0].reset();
-
-   });
-
- 
+   testName();
+   testEmailAddress();
+   testPassword();
 
   }
 

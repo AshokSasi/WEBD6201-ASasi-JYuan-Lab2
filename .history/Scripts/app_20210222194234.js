@@ -535,8 +535,7 @@ constructor(emailAddress = "",username = "",password ="", firstName="", lastName
     event.preventDefault();
     let username= firstName.value + lastName.value;
     let newUser = new core.User(emailAddress.value, username, password.value, firstName.value,lastName.value);
-    console.log(newUser.serialize());
-    $('#registerForm')[0].reset();
+    console.log(newUser.toString());
 
    });
 
